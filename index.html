@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Hotel Management System</title>
+        <link rel="stylesheet"
+            href="index.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+            rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Lato'
+            rel='stylesheet'
+            type='text/css'>
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <div class="grid-container">
+            <header class="header"></header>
+            <aside class="sidenav">
+                <div class=" navigation ">
+                    <ul>
+                        <li id="room">
+                            <a>
+                                <span class="icon"><i class="fa fa-home"></i></i> </span>
+                                <span class="title"> Rooms </span>
+                            </a>
+                        </li>
+                        <li id="customer">
+                            <a>
+                                <span class="icon"><i class="fa fa-users"></i> </span>
+                                <span class="title"> Customers </span>
+                            </a>
+                        </li>
+                        <li id="booking">
+                            <a>
+                                <span class="icon"><i class="fa fa-credit-card"></i> </span>
+                                <span class="title"> Bookings </span>
+                            </a>
+                        </li>
+                        <li id="service">
+                            <a>
+                                <span class="icon"><i class="fa fa-star-o"
+                                        aria-hidden="true"></i> </span>
+                                <span class="title"> Services </span>
+                            </a>
+                        </li>
+                        <li id="dashboard">
+                            <a>
+                                <span class="icon"><i class="fa fa-star-o"></i> </span>
+                                <span class="title"> Dashboard </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+
+
+            <div id="main">
+
+            </div>
+
+
+
+            <template id="roomTemp">
+                <main class="main">
+                    <aside class="sub-sidenav">
+                        <div class="inputs-group">
+                            <div>
+                                <label for="name-input">Name</label>
+                                <input type="text"
+                                    id="name-input">
+                            </div>
+
+                            <div>
+                                <label for="category">Category</label>
+
+                                <select name="category"
+                                    id="category">
+                                    <option value="volvo">VIP</option>
+                                    <option value="saab">FREE</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="price-input">Price</label>
+                                <input type="text"
+                                    id="price-input">
+                            </div>
+
+                            <div style="margin: 0 0"
+                                class="buttons-class">
+                                <button class="button-37"
+                                    style="margin-right: 10px"
+                                    role="button">Add</button>
+                                <button class="button-37"
+                                    role="button">Edit</button>
+                            </div>
+                        </div>
+
+
+                    </aside>
+                    <div class="sub-main">
+                        <div class="title-filter">
+
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Hotel Management System</h1>
+                                <h3><I>Manage Rooms</I></h3>
+
+                                <label for="cars">Refresh</label>
+
+                                <select name="cars"
+                                    id="cars"
+                                    class="basic-select">
+                                    <option value="volvo">VIP</option>
+                                    <option value="saab">FREE</option>
+                                </select>
+
+                                <input style="width: 200px;"
+                                    type="text"
+                                    id="basic-input"
+                                    class="basic-input">
+                                <button style="width: 80px; padding: 0; height: 40px;"
+                                    class="button-37">Refresh</button>
+                            </div>
+
+                        </div>
+                        <div class="table table table-bordered table-striped table-responsive-stack"
+                            id="tableOne">
+                            <table>
+                                <tr>
+                                    <th>Rnum</th>
+                                    <th>Guest Name</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>price</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Marcus Anderson</td>
+                                    <td>VIP</td>
+                                    <td>Available</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>James Anderson</td>
+                                    <td>Regular</td>
+                                    <td>Booked</td>
+                                    <td>250</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Mathew Anderson</td>
+                                    <td>VIP</td>
+                                    <td>Booked</td>
+                                    <td>50</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </template>
+
+
+            <template id="bookTemp">
+                <main class="main">
+                    <aside class="sub-sidenav">
+                        <div class="inputs-group">
+                            <div>
+                                <label for="name-input">Name</label>
+                                <input type="text"
+                                    id="name-input">
+                            </div>
+
+                            <div>
+                                <label for="category">Category</label>
+
+                                <select name="category"
+                                    id="category">
+                                    <option value="volvo">VIP</option>
+                                    <option value="saab">FREE</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for=booking-date>Booking Date:</label>
+                                <input type="date"
+                                    id="booking-date"
+                                    name="bookingDate">
+                            </div>
+
+                            <div>
+                                <label for="days-input">Duration in Days</label>
+                                <input type="text"
+                                    id="days-input">
+                            </div>
+
+                            <div>
+                                <label for="price-input">Cost</label>
+                                <input type="text"
+                                    id="price-input">
+                            </div>
+
+                            <div style="margin: 0 0"
+                                class="buttons-class">
+                                <button class="button-37"
+                                    style="margin-right: 10px"
+                                    role="button">Book</button>
+                                <button class="button-37"
+                                    role="button">Cancel</button>
+                            </div>
+                        </div>
+
+
+                    </aside>
+                    <div class="sub-main">
+                        <div class="title-filter">
+
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Hotel Management System</h1>
+                                <h3><I>Room's Booking</I></h3>
+
+                            </div>
+
+                        </div>
+                        <div class="table table table-bordered table-striped table-responsive-stack"
+                            id="tableOne">
+                            <table>
+                                <tr>
+                                    <th>Rnum</th>
+                                    <th>Room Id</th>
+                                    <th>Customer Id</th>
+                                    <th>Book Date</th>
+                                    <th>Duration</th>
+                                    <th>Cost</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>5</td>
+                                    <td>Thur March 10</td>
+                                    <td>7</td>
+                                    <td>900</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>3</td>
+                                    <td>8</td>
+                                    <td>Tues March 8</td>
+                                    <td>7</td>
+                                    <td>600</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>Thur March 10</td>
+                                    <td>7</td>
+                                    <td>750</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>3</td>
+                                    <td>5</td>
+                                    <td>Thur March 10</td>
+                                    <td>7</td>
+                                    <td>1100</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </template>
+            <template id="cusTemp">
+                <main class="main">
+                    <aside style="width: 350px;"
+                        class="sub-sidenav">
+                        <div class="inputs-group">
+                            <div>
+                                <label for="name-input">Name</label>
+                                <input type="text"
+                                    id="name-input">
+                            </div>
+                            <div>
+                                <label for="phone-input">Phone</label>
+                                <input type="text"
+                                    id="phone-input">
+                            </div>
+
+                            <div>
+                                <label for="gender">Gender</label>
+
+                                <select name="gender"
+                                    id="gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="address">Address</label>
+                                <textarea id="address"
+                                    name="address"
+                                    rows="4"
+                                    cols="25"></textarea>
+                            </div>
+
+
+
+                            <div>
+                                <label for="birth-date">Date of Birth</label>
+                                <input class=""
+                                    type="date"
+                                    id="birth-date"
+                                    name="birthDate">
+                            </div>
+
+                            <div style="margin: 0 0"
+                                class="buttons-class">
+                                <button class="button-37"
+                                    style="margin-right: 10px"
+                                    role="button">Add</button>
+                                <button class="button-37"
+                                    role="button">Edit</button>
+                                <button class="button-37"
+                                    role="button">Delete</button>
+                            </div>
+
+
+                        </div>
+
+
+                    </aside>
+                    <div class="sub-main">
+                        <div class="title-filter">
+
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Hotel Management System</h1>
+                                <h3><I>Manage Customers</I></h3>
+
+                                <label for="basic-input">Search</label>
+
+                                <input type="text"
+                                    id="basic-input"
+                                    class="basic-input">
+                                <button class="button-37">Refresh</button>
+                            </div>
+
+                        </div>
+                        <div class="table table table-bordered table-striped table-responsive-stack"
+                            id="tableOne">
+                            <table>
+                                <tr>
+                                    <th>Rnum</th>
+                                    <th>Guest Name</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>price</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Marcus Anderson</td>
+                                    <td>VIP</td>
+                                    <td>Available</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>James Anderson</td>
+                                    <td>Regular</td>
+                                    <td>Booked</td>
+                                    <td>250</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Mathew Anderson</td>
+                                    <td>VIP</td>
+                                    <td>Booked</td>
+                                    <td>50</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </template>
+
+            <template id="dashTemp">
+                <main>
+
+                    <div style="width: 100%; display: flex; justify-content: center;">
+
+                        <div style="text-align: center; font-family: Verdana;">
+                            <h1>Hotel Management System</h1>
+                            <h3><I>Dashboard</I></h3>
+
+                            <input type="text"
+                                id="basic-input"
+                                class="basic-input">
+                            <button class="button-37">Refresh</button>
+                        </div>
+
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; row-gap: 20px; padding-left: 20px; padding-right: 20px; margin-top: 2rem;">
+                        <div
+                            style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: cornflowerblue">
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Total Customers</h1>
+                            </div>
+                        </div>
+                        <div
+                            style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: lawngreen">
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Total Rooms</h1>
+                            </div>
+                        </div>
+                        <div
+                            style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: slategrey">
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Rooms Available</h1>
+                            </div>
+                        </div>
+                        <div
+                            style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: #3ca9e2">
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Rooms Booked </h1>
+                            </div>
+                        </div>
+                        <div
+                            style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: #FFA500">
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Percent Occupancy </h1>
+                            </div>
+                        </div>
+                        <div
+                            style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: tomato">
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Today's Revenue</h1>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </main>
+            </template>
+            <template id="serveTemp">
+                <main class="main">
+                    <aside class="sub-sidenav"
+                        style="width: 350px;">
+                        <div class="inputs-group">
+                            <div>
+                                <label for="name-input">Customer ID</label>
+                                <input type="text"
+                                    id="name-input">
+                            </div>
+
+                            <div>
+                                <label for="service-list">Type</label>
+
+                                <select name="service"
+                                    id="service-list">
+                                    <option value="towels">Extra Towels </option>
+                                    <option value="wifi">Wifi Passcode </option>
+                                    <option value="dinning">Dinning</option>
+                                    <option value="cleaning">Room Cleaning</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="status-list">Status</label>
+
+                                <select name="status"
+                                    id="status-list">
+                                    <option value="pending">Pending </option>
+                                    <option value="inProgress">In-Progress</option>
+                                    <option value="complete">Complete</option>
+
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="assigned-date">Assigned</label>
+                                <input class=""
+                                    type="date"
+                                    id="assigned-date"
+                                    name="assigned-date">
+                            </div>
+
+
+                            <div style="margin: 0 0"
+                                class="buttons-class">
+                                <button class="button-37"
+                                    style="margin-right: 10px"
+                                    role="button">Add</button>
+                                <button class="button-37"
+                                    role="button">Edit</button>
+                                <button class="button-37"
+                                    role="button">Delete</button>
+                            </div>
+
+
+                        </div>
+
+
+                    </aside>
+                    <div class="sub-main">
+                        <div class="title-filter">
+
+                            <div style="text-align: center; font-family: Verdana;">
+                                <h1>Hotel Management System</h1>
+                                <h3><I>Manage Services</I></h3>
+
+                                <label for="basic-input">Search</label>
+
+                                <input type="text"
+                                    id="basic-input"
+                                    class="basic-input">
+                                <button class="button-37">Refresh</button>
+                            </div>
+
+                        </div>
+                        <div class="table table table-bordered table-striped table-responsive-stack"
+                            id="tableOne">
+                            <table>
+                                <tr>
+                                    <th>ServiceNum</th>
+                                    <th>CustNum</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Date assigned</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>4</td>
+                                    <td>Extra Towels</td>
+                                    <td>Pending</td>
+                                    <td>24/11/2001</td>
+                                </tr>
+                                <td>2</td>
+                                <td>8</td>
+                                <td>Wifi Passcode</td>
+                                <td>Complete</td>
+                                <td>24/11/2001</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>Extra Towels</td>
+                                    <td>Complete</td>
+                                    <td>24/11/2001</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </template>
+            <footer class="footer"></footer>
+        </div>
+        <script src="../script.js"></script>
+    </body>
+
+</html>
