@@ -1,4 +1,4 @@
-const booking = `
+const room = `
  <main class="main">
                     <aside class="sub-sidenav">
                         <div class="inputs-group">
@@ -19,20 +19,7 @@ const booking = `
                             </div>
 
                             <div>
-                                <label for=booking-date>Booking Date:</label>
-                                <input type="date"
-                                    id="booking-date"
-                                    name="bookingDate">
-                            </div>
-
-                            <div>
-                                <label for="days-input">Duration in Days</label>
-                                <input type="text"
-                                    id="days-input">
-                            </div>
-
-                            <div>
-                                <label for="price-input">Cost</label>
+                                <label for="price-input">Price</label>
                                 <input type="text"
                                     id="price-input">
                             </div>
@@ -41,9 +28,9 @@ const booking = `
                                 class="buttons-class">
                                 <button class="button-37"
                                     style="margin-right: 10px"
-                                    role="button">Book</button>
+                                    role="button">Add</button>
                                 <button class="button-37"
-                                    role="button">Cancel</button>
+                                    role="button">Edit</button>
                             </div>
                         </div>
 
@@ -54,8 +41,23 @@ const booking = `
 
                             <div style="text-align: center; font-family: Verdana;">
                                 <h1>Hotel Management System</h1>
-                                <h3><I>Room's Booking</I></h3>
+                                <h3><I>Manage Rooms</I></h3>
 
+                                <label for="cars">Refresh</label>
+
+                                <select name="cars"
+                                    id="cars"
+                                    class="basic-select">
+                                    <option value="volvo">VIP</option>
+                                    <option value="saab">FREE</option>
+                                </select>
+
+                                <input style="width: 200px;"
+                                    type="text"
+                                    id="basic-input"
+                                    class="basic-input">
+                                <button style="width: 80px; padding: 0; height: 40px;"
+                                    class="button-37">Refresh</button>
                             </div>
 
                         </div>
@@ -64,43 +66,31 @@ const booking = `
                             <table>
                                 <tr>
                                     <th>Rnum</th>
-                                    <th>Room Id</th>
-                                    <th>Customer Id</th>
-                                    <th>Book Date</th>
-                                    <th>Duration</th>
-                                    <th>Cost</th>
+                                    <th>Guest Name</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>price</th>
                                 </tr>
                                 <tr>
                                     <td>1</td>
+                                    <td>Marcus Anderson</td>
+                                    <td>VIP</td>
+                                    <td>Available</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
                                     <td>2</td>
-                                    <td>5</td>
-                                    <td>Thur March 10</td>
-                                    <td>7</td>
-                                    <td>900</td>
+                                    <td>James Anderson</td>
+                                    <td>Regular</td>
+                                    <td>Booked</td>
+                                    <td>250</td>
                                 </tr>
                                 <tr>
-                                    <td>1</td>
                                     <td>3</td>
-                                    <td>8</td>
-                                    <td>Tues March 8</td>
-                                    <td>7</td>
-                                    <td>600</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td>Thur March 10</td>
-                                    <td>7</td>
-                                    <td>750</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>3</td>
-                                    <td>5</td>
-                                    <td>Thur March 10</td>
-                                    <td>7</td>
-                                    <td>1100</td>
+                                    <td>Mathew Anderson</td>
+                                    <td>VIP</td>
+                                    <td>Booked</td>
+                                    <td>50</td>
                                 </tr>
                             </table>
                         </div>
@@ -108,4 +98,4 @@ const booking = `
                 </main>
 `;
 
-export default booking;
+export default room;

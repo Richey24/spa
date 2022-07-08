@@ -1,35 +1,35 @@
+import booking from "./booking.js";
+import room from "./room.js";
+import customer from "./customer.js";
+import dashboard from "./dashboard.js";
+import service from "./service.js";
 const main = document.getElementById("main");
-const bookTemp = document.getElementById("bookTemp");
-const dashTemp = document.getElementById("dashTemp");
-const cusTemp = document.getElementById("cusTemp");
-const serveTemp = document.getElementById("serveTemp");
-const roomTemp = document.getElementById("roomTemp");
-const book = document.getElementById("booking");
-const customer = document.getElementById("customer");
-const dashboard = document.getElementById("dashboard");
-const service = document.getElementById("service");
-const room = document.getElementById("room");
+const bookNav = document.getElementById("booking");
+const customerNav = document.getElementById("customer");
+const dashboardNav = document.getElementById("dashboard");
+const serviceNav = document.getElementById("service");
+const roomNav = document.getElementById("room");
 
 window.addEventListener("load", () => {
-  main.innerHTML = roomTemp.content.firstElementChild.outerHTML;
+  main.innerHTML = room;
 });
 
-book.addEventListener("click", () => {
-  main.innerHTML = bookTemp.content.firstElementChild.outerHTML;
+bookNav.addEventListener("click", () => {
+  main.innerHTML = booking;
 });
 
-customer.addEventListener("click", () => {
-  main.innerHTML = cusTemp.content.firstElementChild.outerHTML;
+customerNav.addEventListener("click", () => {
+  main.innerHTML = customer;
 });
 
-dashboard.addEventListener("click", () => {
-  main.innerHTML = dashTemp.content.firstElementChild.outerHTML;
+dashboardNav.addEventListener("click", () => {
+  main.innerHTML = dashboard;
 });
 
-service.addEventListener("click", () => {
-  main.innerHTML = serveTemp.content.firstElementChild.outerHTML;
+serviceNav.addEventListener("click", () => {
+  main.innerHTML = service;
 });
 
-room.addEventListener("click", () => {
-  main.innerHTML = roomTemp.content.firstElementChild.outerHTML;
+roomNav.addEventListener("click", () => {
+  main.innerHTML = room;
 });
