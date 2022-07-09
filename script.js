@@ -12,24 +12,30 @@ const roomNav = document.getElementById("room");
 
 window.addEventListener("load", () => {
   main.innerHTML = room;
+  window.history.pushState({}, "", "/room");
 });
 
 bookNav.addEventListener("click", () => {
   main.innerHTML = booking;
+  window.history.pushState({}, "", "/booking");
 });
 
 customerNav.addEventListener("click", () => {
   main.innerHTML = customer;
+  window.history.pushState({}, "", "/customer");
 });
 
 dashboardNav.addEventListener("click", () => {
   main.innerHTML = dashboard;
+  window.history.pushState({}, "", "/dashboard");
 });
 
 serviceNav.addEventListener("click", () => {
   main.innerHTML = service;
+  window.history.pushState({}, "", "/service");
 });
 
 roomNav.addEventListener("click", () => {
   main.innerHTML = room;
+  window.history.pushState({}, "", "/room");
 });
