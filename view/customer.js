@@ -1,3 +1,4 @@
+// use template literal for html
 const customer = `
 <main class="main">
                     <aside style="width: 350px;"

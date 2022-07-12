@@ -1,3 +1,4 @@
+// use template literal for html
 const dashboard = `
             <main>
                     <div style="width: 100%; display: flex; justify-content: center;">

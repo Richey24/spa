@@ -1,3 +1,4 @@
+// use template literal for html
 const booking = `
  <main class="main">
                     <aside class="sub-sidenav">
