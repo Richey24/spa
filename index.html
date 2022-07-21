@@ -6,8 +6,12 @@
         <title>Hotel Management System</title>
         <link rel="stylesheet"
             href="index.css">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-            rel="stylesheet">
+        <link rel="stylesheet"
+            href="style.css">
+        <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+            crossorigin="anonymous" />
         <link href='https://fonts.googleapis.com/css?family=Lato'
             rel='stylesheet'
             type='text/css'>
@@ -15,7 +19,7 @@
             content="width=device-width, initial-scale=1">
     </head>
 
-    <body>
+    <body id="body">
         <div class="grid-container">
             <header class="header"></header>
             <aside class="sidenav">
@@ -41,14 +45,13 @@
                         </li>
                         <li>
                             <a id="service">
-                                <span class="icon"><i class="fa fa-star-o"
-                                        aria-hidden="true"></i> </span>
+                                <span class="icon"><i class="fa fa-server"></i> </span>
                                 <span class="title"> Services </span>
                             </a>
                         </li>
                         <li>
                             <a id="dashboard">
-                                <span class="icon"><i class="fa fa-star-o"></i> </span>
+                                <span class="icon"><i class="fa fa-chart-line"></i> </span>
                                 <span class="title"> Dashboard </span>
                             </a>
                         </li>
@@ -64,6 +67,7 @@
         </div>
         <script type="module"
             src="./script.js"></script>
+        <script src="./login.js"></script>
     </body>
 
 </html>
