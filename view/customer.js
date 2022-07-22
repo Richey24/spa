@@ -77,34 +77,13 @@ const customer = `
                         </div>
                         <div class="table table table-bordered table-striped table-responsive-stack"
                             id="tableOne">
-                            <table>
+                            <table id="cusTable">
                                 <tr>
-                                    <th>Rnum</th>
-                                    <th>Guest Name</th>
-                                    <th>Type</th>
-                                    <th>Status</th>
-                                    <th>price</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Marcus Anderson</td>
-                                    <td>VIP</td>
-                                    <td>Available</td>
-                                    <td>100</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>James Anderson</td>
-                                    <td>Regular</td>
-                                    <td>Booked</td>
-                                    <td>250</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Mathew Anderson</td>
-                                    <td>VIP</td>
-                                    <td>Booked</td>
-                                    <td>50</td>
+                                  <th>SN</th>
+                                    <th>Customer Name</th>
+                                    <th>Phone Nubmer</th>
+                                    <th>Gender</th>
+                                    <th>Date of birth</th>
                                 </tr>
                             </table>
                         </div>

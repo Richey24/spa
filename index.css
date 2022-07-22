@@ -115,8 +115,6 @@
     background: white;
 }
 
-
-
 aside input[type=text],
 aside select,
 aside input[type=date] {
@@ -127,6 +125,7 @@ aside input[type=date] {
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 16px;
+    outline: none;
     resize: vertical;
 }
 
@@ -263,12 +262,12 @@ th {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 10%;
 }
 
 .navigation ul li {
     position: relative;
-    width: 100%;
+    width: 10%;
     list-style: none;
 }
 
