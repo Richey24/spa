@@ -21,7 +21,7 @@ window.addEventListener("load", async () => {
   const userId = id.split("=")[1];
   if (userId) {
     main.innerHTML = room;
-    const table = document.getElementById("roomTable");
+    const table = document.getElementById("cusTable");
     const customers = await fetch(
       "https://dreamtechhotel.herokuapp.com/user/get/all"
     );
@@ -29,20 +29,11 @@ window.addEventListener("load", async () => {
     users.user.forEach((user, i) => {
       const tr = document.createElement("tr");
       const username = document.createElement("td");
-      const password = document.createElement("td");
-      const role = document.createElement("td");
       const id = document.createElement("td");
-      const price = document.createElement("td");
       username.innerHTML = user.username;
-      password.innerHTML = user.password;
-      role.innerHTML = user.role;
       id.innerHTML = i + 1;
-      price.innerHTML = "500";
       tr.appendChild(id);
       tr.appendChild(username);
-      tr.appendChild(role);
-      tr.appendChild(password);
-      tr.appendChild(price);
       table.appendChild(tr);
     });
     window.history.pushState({}, "", "/room");
