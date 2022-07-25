@@ -21,21 +21,6 @@ window.addEventListener("load", async () => {
   const userId = id.split("=")[1];
   if (userId) {
     main.innerHTML = room;
-    const table = document.getElementById("cusTable");
-    const customers = await fetch(
-      "https://dreamtechhotel.herokuapp.com/user/get/all"
-    );
-    const users = await customers.json();
-    users.user.forEach((user, i) => {
-      const tr = document.createElement("tr");
-      const username = document.createElement("td");
-      const id = document.createElement("td");
-      username.innerHTML = user.username;
-      id.innerHTML = i + 1;
-      tr.appendChild(id);
-      tr.appendChild(username);
-      table.appendChild(tr);
-    });
     window.history.pushState({}, "", "/room");
   } else {
     body.innerHTML = login;
@@ -79,8 +64,71 @@ bookNav.addEventListener("click", () => {
 });
 
 // display customer view on click of customer link
-customerNav.addEventListener("click", () => {
+customerNav.addEventListener("click", async () => {
   main.innerHTML = customer;
+  const table = document.getElementById("cusTable");
+  const customers = await fetch(
+    "https://dreamtechhotel.herokuapp.com/user/get/all"
+  );
+  const users = await customers.json();
+  users.user.forEach((user, i) => {
+    const tr = document.createElement("tr");
+    const username = document.createElement("td");
+    const phone = document.createElement("td");
+    const gender = document.createElement("td");
+    const address = document.createElement("td");
+    const dob = document.createElement("td");
+    const id = document.createElement("td");
+    const button = document.createElement("button");
+    button.innerHTML = "Delete";
+    button.className = "deleteButton";
+    button.addEventListener("click", async () => {
+      await fetch(
+        `https://dreamtechhotel.herokuapp.com/user/delete/${user._id}`,
+        { method: "DELETE" }
+      );
+    });
+    username.innerHTML = user.name;
+    phone.innerHTML = user.phone;
+    address.innerHTML = user.address;
+    gender.innerHTML = user.gender;
+    dob.innerHTML = user.dob;
+    id.innerHTML = i + 1;
+    tr.appendChild(id);
+    tr.appendChild(username);
+    tr.appendChild(phone);
+    tr.appendChild(gender);
+    tr.appendChild(dob);
+    tr.appendChild(button);
+    table.appendChild(tr);
+  });
+
+  const cusForm = document.getElementById("cusForm");
+  cusForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const info = {
+      name: event.target.name.value,
+      phone: event.target.phone.value,
+      gender: event.target.gender.value,
+      role: "Customer",
+      address: event.target.address.value,
+      dob: event.target.birthDate.value,
+    };
+    console.log(info);
+    const res = await fetch(
+      "https://dreamtechhotel.herokuapp.com/user/register",
+      {
+        method: "POST",
+        body: JSON.stringify(info),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    );
+    if (res.status === 200) {
+      console.log("successful");
+    }
+  });
   window.history.pushState({}, "", "/customer");
 });
 

@@ -311,6 +311,18 @@ th {
     font-family: sans-serif;
 }
 
+.deleteButton {
+    width: 100px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: #04AA6D;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 /*@media screen and (min-width: 1500px) {
     .sub-main {
         display: grid;

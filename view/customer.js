@@ -3,21 +3,24 @@ const customer = `
 <main class="main">
                     <aside style="width: 350px;"
                         class="sub-sidenav">
+                        <form id="cusForm">
                         <div class="inputs-group">
-                            <div>
+                        <div>
                                 <label for="name-input">Name</label>
                                 <input type="text"
-                                    id="name-input">
-                            </div>
-                            <div>
+                                name="name"
+                                id="name-input">
+                                </div>
+                                <div>
                                 <label for="phone-input">Phone</label>
                                 <input type="text"
-                                    id="phone-input">
-                            </div>
-
-                            <div>
+                                name="phone"
+                                id="phone-input">
+                                </div>
+                                
+                                <div>
                                 <label for="gender">Gender</label>
-
+                                
                                 <select name="gender"
                                     id="gender">
                                     <option value="male">Male</option>
@@ -26,8 +29,8 @@ const customer = `
                             </div>
 
                             <div>
-                                <label for="address">Address</label>
-                                <textarea id="address"
+                            <label for="address">Address</label>
+                            <textarea id="address"
                                     name="address"
                                     rows="4"
                                     cols="25"></textarea>
@@ -36,23 +39,20 @@ const customer = `
 
 
                             <div>
-                                <label for="birth-date">Date of Birth</label>
-                                <input class=""
+                            <label for="birth-date">Date of Birth</label>
+                            <input class=""
                                     type="date"
                                     id="birth-date"
                                     name="birthDate">
                             </div>
-
-                            <div style="margin: 0 0"
-                                class="buttons-class">
-                                <button class="button-37"
-                                    style="margin-right: 10px"
-                                    role="button">Add</button>
-                                <button class="button-37"
-                                    role="button">Edit</button>
-                                <button class="button-37"
-                                    role="button">Delete</button>
+                            
+                            <div style="display: flex; justify-content: center"
+                            class="buttons-class">
+                            <button type="submit" class="button-37"
+                            role="button">Add</button>
+                            
                             </div>
+                            </form>
 
 
                         </div>
@@ -84,6 +84,7 @@ const customer = `
                                     <th>Phone Nubmer</th>
                                     <th>Gender</th>
                                     <th>Date of birth</th>
+                                    <th>Delete</th>
                                 </tr>
                             </table>
                         </div>
