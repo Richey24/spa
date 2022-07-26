@@ -11,6 +11,18 @@ const customer = `
                                 name="name"
                                 id="name-input">
                                 </div>
+                        <div>
+                                <label for="email-input">Email</label>
+                                <input type="email"
+                                name="email"
+                                id="email-input">
+                                </div>
+                        <div>
+                                <label for="password-input">Password</label>
+                                <input type="password"
+                                name="password"
+                                id="password-input">
+                                </div>
                                 <div>
                                 <label for="phone-input">Phone</label>
                                 <input type="text"
@@ -77,15 +89,19 @@ const customer = `
                         </div>
                         <div class="table table table-bordered table-striped table-responsive-stack"
                             id="tableOne">
-                            <table id="cusTable">
-                                <tr>
-                                  <th>SN</th>
-                                    <th>Customer Name</th>
-                                    <th>Phone Nubmer</th>
-                                    <th>Gender</th>
-                                    <th>Date of birth</th>
-                                    <th>Delete</th>
-                                </tr>
+                            <table>
+                            <thead>
+                            <tr>
+                            <th>SN</th>
+                            <th>Customer Name</th>
+                            <th>Email</th>
+                            <th>Phone Nubmer</th>
+                            <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody id="cusTable">
+                            
+                            </tbody>
                             </table>
                         </div>
                     </div>

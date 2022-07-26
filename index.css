@@ -116,6 +116,8 @@
 }
 
 aside input[type=text],
+aside input[type=email],
+aside input[type=password],
 aside select,
 aside input[type=date] {
     width: 100%;
