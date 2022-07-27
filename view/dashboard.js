@@ -19,37 +19,37 @@ const dashboard = `
                         <div
                             style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: cornflowerblue">
                             <div style="text-align: center; font-family: Verdana;">
-                                <h1 id="dashCus">Total Customers</h1>
+                                <h3 id="dashCus">Total Customers</h3>
                             </div>
                         </div>
                         <div
                             style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: lawngreen">
                             <div style="text-align: center; font-family: Verdana;">
-                                <h1 id="dashRoom">Total Rooms</h1>
+                                <h3 id="dashRoom">Total Rooms</h3>
                             </div>
                         </div>
                         <div
                             style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: slategrey">
                             <div style="text-align: center; font-family: Verdana;">
-                                <h1 id="dashRoomA">Rooms Available</h1>
+                                <h3 id="dashRoomA">Rooms Available</h3>
                             </div>
                         </div>
                         <div
                             style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: #3ca9e2">
                             <div style="text-align: center; font-family: Verdana;">
-                                <h1 id="dashRoomB">Rooms Booked </h1>
+                                <h3 id="dashRoomB">Rooms Booked </h3>
                             </div>
                         </div>
                         <div
                             style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: #FFA500">
                             <div style="text-align: center; font-family: Verdana;">
-                                <h1 id="dashPercent">Percent Occupancy </h1>
+                                <h3 id="dashPercent">Percent Occupancy </h3>
                             </div>
                         </div>
                         <div
                             style="width: 350px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: tomato">
                             <div style="text-align: center; font-family: Verdana;">
-                                <h1 id="dashRev">Today's Revenue</h1>
+                                <h3 id="dashRev">Today's Revenue</h3>
                             </div>
                         </div>
 

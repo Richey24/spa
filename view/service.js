@@ -5,9 +5,9 @@ const service = `
                         style="width: 350px;">
                         <div class="inputs-group">
                             <div>
-                                <label for="name-input">Customer ID</label>
-                                <input type="text"
-                                    id="name-input">
+                                <label for="name-input">Room Number</label>
+                               <select id="roomNum" name="roomNum">
+                               </select>
                             </div>
 
                             <div>
@@ -79,8 +79,8 @@ const service = `
                             id="tableOne">
                             <table>
                                 <tr>
-                                    <th>ServiceNum</th>
-                                    <th>CustNum</th>
+                                    <th>SN</th>
+                                    <th>Room ID</th>
                                     <th>Type</th>
                                     <th>Status</th>
                                     <th>Date assigned</th>

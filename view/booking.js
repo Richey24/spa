@@ -6,11 +6,12 @@ const booking = `
                         <form id="bookForm">
                         <div>
                         <label for="name-input">Room Number</label>
-                        <input type="text"
-                        id="name-input" name="roomNum">
+                       <select id="roomNum" name="roomNum">
+                       
+                       </select>
                             </div>
                         <div>
-                        <label for="name-input">Cuatomer Name</label>
+                        <label for="name-input">Customer Name</label>
                         <input type="text"
                         id="name-input" name="cusName">
                             </div>
@@ -32,7 +33,7 @@ const booking = `
                             <div>
                                 <label for="price-input">Cost</label>
                                 <input type="text"
-                                    id="price-input">
+                                    id="price-input" name="cost">
                             </div>
 
                             <div style="margin: 0 0"

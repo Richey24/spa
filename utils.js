@@ -81,7 +81,7 @@ const addCustomer = async () => {
 const loginCustomer = async () => {
   const id = document.cookie;
   const userId = id.split("=")[1];
-  if (!userId) {
+  if (userId) {
     main.innerHTML = room;
     window.history.pushState({}, "", "/room");
   } else {
@@ -92,7 +92,7 @@ const loginCustomer = async () => {
     form?.addEventListener("submit", async (event) => {
       event.preventDefault();
       const info = {
-        username: event.target.username.value,
+        email: event.target.username.value,
         password: event.target.password.value,
       };
       console.log(info);
@@ -111,6 +111,9 @@ const loginCustomer = async () => {
         errorMessage.innerHTML = "No user found with this username";
       } else if (response.status === 203) {
         errorMessage.innerHTML = "Incorrect password";
+      } else if (user.role !== "Employee") {
+        errorMessage.innerHTML =
+          "You are unauthorised to login to the admin page";
       } else {
         document.cookie = `id=${user._id}`;
         window.location.reload();
@@ -192,6 +195,9 @@ const dashNum = async () => {
   const dashRoom = document.getElementById("dashRoom");
   const dashRoomA = document.getElementById("dashRoomA");
   const dashRoomB = document.getElementById("dashRoomB");
+  const dashPercent = document.getElementById("dashPercent");
+  const dashRev = document.getElementById("dashRev");
+  let totalRev = 0;
   const result = await fetch(
     "https://dreamtechhotel.herokuapp.com/room/get/all"
   );
@@ -200,6 +206,13 @@ const dashNum = async () => {
     "https://dreamtechhotel.herokuapp.com/user/get/all"
   );
   const users = await customers.json();
+  const bookRes = await fetch(
+    "https://dreamtechhotel.herokuapp.com/book/get/all"
+  );
+  const bookings = await bookRes.json();
+  bookings.room.forEach((booking) => {
+    totalRev += parseInt(booking.cost);
+  });
   dashCus.append(
     " " + users.user.filter((user) => user.role === "Customer").length
   );
@@ -210,10 +223,31 @@ const dashNum = async () => {
   dashRoomB.append(
     " " + rooms.rooms.filter((room) => room.isAvailable === false).length
   );
+  dashPercent.append(
+    " " +
+      (rooms.rooms.filter((room) => room.isAvailable === false).length /
+        rooms.rooms.length) *
+        100 +
+      "%"
+  );
+  dashRev.append(" " + totalRev);
 };
 
 const getBook = async () => {
   const table = document.getElementById("cusTable");
+  const roomNum = document.getElementById("roomNum");
+  const roomResult = await fetch(
+    "https://dreamtechhotel.herokuapp.com/room/get/all"
+  );
+  const rooms = await roomResult.json();
+  rooms.rooms
+    .filter((room) => room.isAvailable === true)
+    .forEach((room) => {
+      const option = document.createElement("option");
+      option.value = room.roomNum;
+      option.innerHTML = room.roomNum;
+      roomNum.appendChild(option);
+    });
   const result = await fetch(
     "https://dreamtechhotel.herokuapp.com/book/get/all"
   );
@@ -238,8 +272,8 @@ const getBook = async () => {
     });
     roomNum.innerHTML = booking.roomNum;
     cusName.innerHTML = booking.cusId;
-    cInDate.innerHTML = booking.checkInDate;
-    cOutDate.innerHTML = booking.checkOutDate;
+    cInDate.innerHTML = new Date(booking.checkInDate).toLocaleString();
+    cOutDate.innerHTML = new Date(booking.checkOutDate).toLocaleString();
     cost.innerHTML = booking.cost;
     tr.appendChild(roomNum);
     tr.appendChild(cusName);
@@ -259,7 +293,31 @@ const addBook = async () => {
     const info = {
       roomNum: event.target.roomNum.value,
       cusId: event.target.cusName.value,
+      checkInDate: event.target.checkInDate.value,
+      checkOutDate: event.target.checkOutDate.value,
+      cost: event.target.cost.value,
     };
+    console.log(info);
+    const res = await fetch(
+      "https://dreamtechhotel.herokuapp.com/book/create",
+      {
+        method: "POST",
+        body: JSON.stringify(info),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    );
+    if (res.status === 200) {
+      console.log("created");
+      table.innerHTML = "";
+      getBook();
+      event.target.roomNum.value = "";
+      event.target.cusName.value = "";
+      event.target.checkInDate.value = "";
+      event.target.checkOutDate.value = "";
+      event.target.cost.value = "";
+    }
   });
 };
 
@@ -271,4 +329,5 @@ export {
   addRoom,
   dashNum,
   getBook,
+  addBook,
 };

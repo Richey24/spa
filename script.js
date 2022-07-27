@@ -12,6 +12,7 @@ import {
   addRoom,
   dashNum,
   getBook,
+  addBook,
 } from "./utils.js";
 // get id of the main div
 const main = document.getElementById("main");
@@ -34,6 +35,7 @@ window.addEventListener("load", async () => {
 bookNav.addEventListener("click", () => {
   main.innerHTML = booking;
   getBook();
+  addBook();
   window.history.pushState({}, "", "/booking");
 });
 
