@@ -272,8 +272,8 @@ const getBook = async () => {
     });
     roomNum.innerHTML = booking.roomNum;
     cusName.innerHTML = booking.cusId;
-    cInDate.innerHTML = new Date(booking.checkInDate).toLocaleString();
-    cOutDate.innerHTML = new Date(booking.checkOutDate).toLocaleString();
+    cInDate.innerHTML = new Date(booking.checkInDate).toLocaleDateString();
+    cOutDate.innerHTML = new Date(booking.checkOutDate).toLocaleDateString();
     cost.innerHTML = booking.cost;
     tr.appendChild(roomNum);
     tr.appendChild(cusName);
@@ -321,6 +321,99 @@ const addBook = async () => {
   });
 };
 
+const getService = async () => {
+  const table = document.getElementById("cusTable");
+  const bookNum = document.getElementById("bookNum");
+  const bookRes = await fetch(
+    "https://dreamtechhotel.herokuapp.com/book/get/all"
+  );
+  const bookings = await bookRes.json();
+  bookings.room.forEach((booking) => {
+    const option = document.createElement("option");
+    option.value = booking.roomNum;
+    option.innerHTML = booking.roomNum;
+    bookNum.appendChild(option);
+  });
+  const res = await fetch(
+    "https://dreamtechhotel.herokuapp.com/service/get/all"
+  );
+  const { requests } = await res.json();
+  requests.forEach((request, i) => {
+    const sn = document.createElement("td");
+    const roomNum = document.createElement("td");
+    const type = document.createElement("td");
+    const status = document.createElement("td");
+    const date = document.createElement("td");
+    const tr = document.createElement("tr");
+    const update = document.createElement("button");
+    update.className = "deleteButton";
+    update.innerHTML = "Update";
+    update.addEventListener("click", async () => {
+      if (request.status === "Complete") {
+        return;
+      }
+      const info = {
+        status: request.status === "Pending" ? "In-Progress" : "Complete",
+      };
+      const res = await fetch(
+        `https://dreamtechhotel.herokuapp.com/service/update/${request._id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(info),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
+      if (res.status === 200) {
+        table.innerHTML = "";
+        getService();
+      }
+    });
+    sn.innerHTML = i + 1;
+    roomNum.innerHTML = request.roomNum;
+    type.innerHTML = request.description;
+    status.innerHTML = request.status;
+    date.innerHTML = new Date(request.date).toLocaleDateString();
+    tr.appendChild(sn);
+    tr.appendChild(roomNum);
+    tr.appendChild(type);
+    tr.appendChild(status);
+    tr.appendChild(date);
+    tr.appendChild(update);
+    table.appendChild(tr);
+  });
+};
+
+const addService = async () => {
+  const table = document.getElementById("cusTable");
+  const serveForm = document.getElementById("serveForm");
+  serveForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const info = {
+      roomNum: event.target.bookNum.value,
+      description: event.target.service.value,
+      status: "Pending",
+      date: event.target.date.value,
+    };
+    console.log(info);
+    const res = await fetch(
+      `https://dreamtechhotel.herokuapp.com/service/create`,
+      {
+        method: "POST",
+        body: JSON.stringify(info),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    );
+    if (res.status === 200) {
+      table.innerHTML = "";
+      getService();
+    }
+  });
+};
+
 export {
   getCustomer,
   addCustomer,
@@ -330,4 +423,6 @@ export {
   dashNum,
   getBook,
   addBook,
+  getService,
+  addService,
 };

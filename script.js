@@ -13,6 +13,8 @@ import {
   dashNum,
   getBook,
   addBook,
+  getService,
+  addService,
 } from "./utils.js";
 // get id of the main div
 const main = document.getElementById("main");
@@ -57,6 +59,8 @@ dashboardNav.addEventListener("click", () => {
 // display service view on click of service link
 serviceNav.addEventListener("click", () => {
   main.innerHTML = service;
+  getService();
+  addService();
   window.history.pushState({}, "", "/service");
 });
 
