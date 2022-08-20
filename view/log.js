@@ -9,14 +9,16 @@ const login = `<div id="login-form-wrap">
           <input type="text"
             id="username"
             name="username"
-            placeholder="Username"
+            value="admin@gmail.com""
+            placeholder="Email"
             required><i class="validation"><span></span><span></span></i>
         </p>
         <p style="margin-top: 1rem">
           <input type="password"
             id="password"
             name="password"
-            placeholder="Password"
+            value="password123"
+            placeholder="********"
             required>
         </p>
         <p style="margin-top: 1rem">

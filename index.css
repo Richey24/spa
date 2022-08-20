@@ -116,6 +116,8 @@
 }
 
 aside input[type=text],
+aside input[type=email],
+aside input[type=password],
 aside select,
 aside input[type=date] {
     width: 100%;
@@ -309,6 +311,18 @@ th {
     text-align: start;
     white-space: nowrap;
     font-family: sans-serif;
+}
+
+.deleteButton {
+    width: 100px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: #04AA6D;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /*@media screen and (min-width: 1500px) {

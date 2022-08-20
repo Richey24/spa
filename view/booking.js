@@ -3,49 +3,48 @@ const booking = `
  <main class="main">
                     <aside class="sub-sidenav">
                         <div class="inputs-group">
-                            <div>
-                                <label for="name-input">Name</label>
-                                <input type="text"
-                                    id="name-input">
+                        <form id="bookForm">
+                        <div>
+                        <label for="name-input">Room Number</label>
+                       <select id="roomNum" name="roomNum">
+                       
+                       </select>
+                            </div>
+                        <div>
+                        <label for="name-input">Customer Name</label>
+                        <input type="text"
+                        id="name-input" name="cusName">
                             </div>
 
                             <div>
-                                <label for="category">Category</label>
-
-                                <select name="category"
-                                    id="category">
-                                    <option value="volvo">VIP</option>
-                                    <option value="saab">FREE</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for=booking-date>Booking Date:</label>
+                                <label for=booking-date>Check In Date:</label>
                                 <input type="date"
                                     id="booking-date"
-                                    name="bookingDate">
+                                    name="checkInDate">
                             </div>
 
                             <div>
-                                <label for="days-input">Duration in Days</label>
-                                <input type="text"
-                                    id="days-input">
+                                <label for=booking-date>Check Out Date:</label>
+                                <input type="date"
+                                    id="booking-date"
+                                    name="checkOutDate">
                             </div>
 
                             <div>
                                 <label for="price-input">Cost</label>
                                 <input type="text"
-                                    id="price-input">
+                                    id="price-input" name="cost">
                             </div>
 
                             <div style="margin: 0 0"
                                 class="buttons-class">
-                                <button class="button-37"
+                                <button type="submit" class="button-37"
                                     style="margin-right: 10px"
                                     role="button">Book</button>
+                                    </form>
                                 <button class="button-37"
-                                    role="button">Cancel</button>
-                            </div>
+                                role="button">Cancel</button>
+                                </div>
                         </div>
 
 
@@ -63,46 +62,20 @@ const booking = `
                         <div class="table table table-bordered table-striped table-responsive-stack"
                             id="tableOne">
                             <table>
-                                <tr>
-                                    <th>Rnum</th>
-                                    <th>Room Id</th>
-                                    <th>Customer Id</th>
-                                    <th>Book Date</th>
-                                    <th>Duration</th>
-                                    <th>Cost</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>5</td>
-                                    <td>Thur March 10</td>
-                                    <td>7</td>
-                                    <td>900</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>3</td>
-                                    <td>8</td>
-                                    <td>Tues March 8</td>
-                                    <td>7</td>
-                                    <td>600</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td>Thur March 10</td>
-                                    <td>7</td>
-                                    <td>750</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>3</td>
-                                    <td>5</td>
-                                    <td>Thur March 10</td>
-                                    <td>7</td>
-                                    <td>1100</td>
-                                </tr>
+                            <thead>
+                            <tr>
+                            <th>Rnum</th>
+                            <th>Customer Name</th>
+                            <th>Check In Date</th>
+                            <th>Check Out Date</th>
+                            <th>Cost</th>
+                            <th>Delete</th>
+                            </tr>
+                            </thead>
+                       
+                            <tbody id="cusTable">
+                            
+                            </tbody>
                             </table>
                         </div>
                     </div>
