@@ -9,7 +9,7 @@ form?.addEventListener("submit", async (event) => {
   };
   console.log(info);
   const response = await fetch(
-    "https://dreamtechhotel.herokuapp.com/user/login",
+    "https://hotel-backend.azurewebsites.net/user/login",
     {
       method: "POST",
       body: JSON.stringify(info),

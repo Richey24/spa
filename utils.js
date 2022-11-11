@@ -4,7 +4,7 @@ import room from "./view/room.js";
 const getCustomer = async () => {
   const table = document.getElementById("cusTable");
   const customers = await fetch(
-    "https://dreamtechhotel.herokuapp.com/user/get/all"
+    "https://hotel-backend.azurewebsites.net/user/get/all"
   );
   const users = await customers.json();
   const filterUsers = users.user.filter((user) => user.role === "Customer");
@@ -19,7 +19,7 @@ const getCustomer = async () => {
     button.className = "deleteButton";
     button.addEventListener("click", async () => {
       await fetch(
-        `https://dreamtechhotel.herokuapp.com/user/delete/${user._id}`,
+        `https://hotel-backend.azurewebsites.net/user/delete/${user._id}`,
         { method: "DELETE" }
       );
       table.innerHTML = "";
@@ -55,7 +55,7 @@ const addCustomer = async () => {
     };
     console.log(info);
     const res = await fetch(
-      "https://dreamtechhotel.herokuapp.com/user/register",
+      "https://hotel-backend.azurewebsites.net/user/register",
       {
         method: "POST",
         body: JSON.stringify(info),
@@ -97,7 +97,7 @@ const loginCustomer = async () => {
       };
       console.log(info);
       const response = await fetch(
-        "https://dreamtechhotel.herokuapp.com/user/login",
+        "https://hotel-backend.azurewebsites.net/user/login",
         {
           method: "POST",
           body: JSON.stringify(info),
@@ -125,7 +125,7 @@ const loginCustomer = async () => {
 const getRoom = async () => {
   const table = document.getElementById("cusTable");
   const result = await fetch(
-    "https://dreamtechhotel.herokuapp.com/room/get/all"
+    "https://hotel-backend.azurewebsites.net/room/get/all"
   );
   const rooms = await result.json();
   rooms.rooms.forEach((room) => {
@@ -139,7 +139,7 @@ const getRoom = async () => {
     button.className = "deleteButton";
     button.addEventListener("click", async () => {
       await fetch(
-        `https://dreamtechhotel.herokuapp.com/room/delete/${room._id}`,
+        `https://hotel-backend.azurewebsites.net/room/delete/${room._id}`,
         { method: "DELETE" }
       );
       table.innerHTML = "";
@@ -171,7 +171,7 @@ const addRoom = async () => {
     };
     console.log(info);
     const res = await fetch(
-      "https://dreamtechhotel.herokuapp.com/room/create",
+      "https://hotel-backend.azurewebsites.net/room/create",
       {
         method: "POST",
         body: JSON.stringify(info),
@@ -199,15 +199,15 @@ const dashNum = async () => {
   const dashRev = document.getElementById("dashRev");
   let totalRev = 0;
   const result = await fetch(
-    "https://dreamtechhotel.herokuapp.com/room/get/all"
+    "https://hotel-backend.azurewebsites.net/room/get/all"
   );
   const rooms = await result.json();
   const customers = await fetch(
-    "https://dreamtechhotel.herokuapp.com/user/get/all"
+    "https://hotel-backend.azurewebsites.net/user/get/all"
   );
   const users = await customers.json();
   const bookRes = await fetch(
-    "https://dreamtechhotel.herokuapp.com/book/get/all"
+    "https://hotel-backend.azurewebsites.net/book/get/all"
   );
   const bookings = await bookRes.json();
   bookings.room.forEach((booking) => {
@@ -225,10 +225,10 @@ const dashNum = async () => {
   );
   dashPercent.append(
     " " +
-      (rooms.rooms.filter((room) => room.isAvailable === false).length /
-        rooms.rooms.length) *
-        100 +
-      "%"
+    (rooms.rooms.filter((room) => room.isAvailable === false).length /
+      rooms.rooms.length) *
+    100 +
+    "%"
   );
   dashRev.append(" " + totalRev);
 };
@@ -237,7 +237,7 @@ const getBook = async () => {
   const table = document.getElementById("cusTable");
   const roomNum = document.getElementById("roomNum");
   const roomResult = await fetch(
-    "https://dreamtechhotel.herokuapp.com/room/get/all"
+    "https://hotel-backend.azurewebsites.net/room/get/all"
   );
   const rooms = await roomResult.json();
   rooms.rooms
@@ -249,7 +249,7 @@ const getBook = async () => {
       roomNum.appendChild(option);
     });
   const result = await fetch(
-    "https://dreamtechhotel.herokuapp.com/book/get/all"
+    "https://hotel-backend.azurewebsites.net/book/get/all"
   );
   const bookings = await result.json();
   bookings.room.forEach((booking) => {
@@ -264,7 +264,7 @@ const getBook = async () => {
     button.className = "deleteButton";
     button.addEventListener("click", async () => {
       await fetch(
-        `https://dreamtechhotel.herokuapp.com/book/remove/${booking._id}`,
+        `https://hotel-backend.azurewebsites.net/book/remove/${booking._id}`,
         { method: "DELETE" }
       );
       table.innerHTML = "";
@@ -299,7 +299,7 @@ const addBook = async () => {
     };
     console.log(info);
     const res = await fetch(
-      "https://dreamtechhotel.herokuapp.com/book/create",
+      "https://hotel-backend.azurewebsites.net/book/create",
       {
         method: "POST",
         body: JSON.stringify(info),
@@ -325,7 +325,7 @@ const getService = async () => {
   const table = document.getElementById("cusTable");
   const bookNum = document.getElementById("bookNum");
   const bookRes = await fetch(
-    "https://dreamtechhotel.herokuapp.com/book/get/all"
+    "https://hotel-backend.azurewebsites.net/book/get/all"
   );
   const bookings = await bookRes.json();
   bookings.room.forEach((booking) => {
@@ -335,7 +335,7 @@ const getService = async () => {
     bookNum.appendChild(option);
   });
   const res = await fetch(
-    "https://dreamtechhotel.herokuapp.com/service/get/all"
+    "https://hotel-backend.azurewebsites.net/service/get/all"
   );
   const { requests } = await res.json();
   requests.forEach((request, i) => {
@@ -356,7 +356,7 @@ const getService = async () => {
         status: request.status === "Pending" ? "In-Progress" : "Complete",
       };
       const res = await fetch(
-        `https://dreamtechhotel.herokuapp.com/service/update/${request._id}`,
+        `https://hotel-backend.azurewebsites.net/service/update/${request._id}`,
         {
           method: "PUT",
           body: JSON.stringify(info),
@@ -398,7 +398,7 @@ const addService = async () => {
     };
     console.log(info);
     const res = await fetch(
-      `https://dreamtechhotel.herokuapp.com/service/create`,
+      `https://hotel-backend.azurewebsites.net/service/create`,
       {
         method: "POST",
         body: JSON.stringify(info),
